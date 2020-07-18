@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TODO LIST</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'>
+</head>
+<body>
+	<h1> <%= Day %> ToDo list</h1>
+	<form action="/" method="post">
+			<input type="text" name="todo" autocomplete="off"></input>
+			<button type="submit" name="submit" value="<%= Day %>">Add</button>
+	</form>
+	
+	<% arr.forEach(function(item){ %>
+		<form action="/del" method="post">
+			<input value="<%= item._id %>" type="checkbox" name="check" onchange="this.form.submit()">
+			<p><%= item.name %></p>
+			<input value="<%= Day %>" type="hidden" name="listName"></input>
+		</form>
+	<% }) %>
+</body>
+</html>
